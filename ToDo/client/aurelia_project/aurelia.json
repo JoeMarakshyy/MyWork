@@ -42,6 +42,12 @@
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
+          {
+            "name": "aurelia-fetch-client",
+            "path": "../node_modules/aurelia-fetch-client/dist/amd",
+            "main": "aurelia-fetch-client"
+            },
+            
           "aurelia-binding",
           "aurelia-bootstrapper",
           "aurelia-dependency-injection",
