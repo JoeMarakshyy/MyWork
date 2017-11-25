@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "client",
   "type": "project:application",
   "bundler": {
     "id": "cli",
