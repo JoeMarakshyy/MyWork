@@ -19,71 +19,19 @@ export class DataServices {
                 })
                 .withInterceptor({
                 request(request) {
+                      var authHeader = 'Bearer ' + localStorage.getItem('aurelia_token')
+                       request.headers.append('Authorization', authHeader);                    
                     console.log(`Requesting ${request.method} ${request.url}`);
                     return request;
                 },
-                response(response) {
-                    console.log(`Received ${response.status} ${response.url}`);
-                    return response;
-                },
-                get(url) {
-                    return this.httpClient.fetch(url)
-                        .then(response => response.json())
-                        .then(data => {
-                            return data;
-                        })
-                        .catch(error => {
-                            return error;
-                        });
-                },
-                post(content, url) {
-                    return this.httpClient
-                        .fetch(url, {
-                            method: 'post',
-                            body: json(content)
-                        })
-                        .then(response => response.json())
-                        .then(object => {
-                            return object;
-                        })
-                        .catch(error => {
-                            return error;
-                        });
-                },
-                put(content, url) {
-                    return this.httpClient
-                        .fetch(url, {
-                            method: 'put',
-                            body: json(content)
-                        })
-                        .then(response => response.json())
-                        .then(object => {
-                            return object;
-                        })
-                        .catch(error => {
-                            return error;
-                        });
-                },
-                delete(url) {
-                    return this.httpClient
-                        .fetch(url, {
-                            method: 'delete'
-                        })
-                        .then(response => response.json())
-                        .then(object => {
-                            return object;
-                        })
-                        .catch(error => {
-                            return error ;
-                        });
-                },
-                
-            
-            
-            
-            
-                });
-            });
+                     response(response) {
+                                        console.log(`Received ${response.status} ${response.url}`);
+                                        return response;
+                                    }
+                                    });
+                                });
+                    
 	}
 
+    
 }
