@@ -29,7 +29,7 @@ this.showLogin = true;
   this.loginError = "Invalid credentials.";
 });
 };
-
+// lol
 }
 showRegister(){
     this.user = {
