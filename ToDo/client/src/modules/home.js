@@ -29,7 +29,8 @@ this.showLogin = true;
   this.loginError = "Invalid credentials.";
 });
 };
-// lol
+
+
 }
 showRegister(){
     this.user = {
@@ -43,6 +44,7 @@ this.showLogin = true;
     this.showLogin = false;
     
 }
+
 async save() {
           let serverResponse = await this.users.save(this.user);
           if (!serverResponse.error) {
@@ -55,5 +57,5 @@ async save() {
 save(){
 	this.showLogin = true
 }
-}
+}xw
 
