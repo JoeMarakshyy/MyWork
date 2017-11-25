@@ -16,7 +16,6 @@ this.users = users;
 this.message = 'Home';
 this.showLogin = true;
 }
-login(){
     login() {
         return this.auth.login(this.email, this.password)
           .then(response => {
