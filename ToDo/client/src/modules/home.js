@@ -5,7 +5,7 @@ import {AuthService} from 'aurelia-auth';
 
 
 
-@inject(Router. Users, AuthService)
+@inject(Router, Users, AuthService)
 
 export class Home {
 constructor(router, users, auth) {
@@ -29,10 +29,7 @@ this.showLogin = true;
   this.loginError = "Invalid credentials.";
 });
 };
-
-
-}
-showRegister(){
+showRegister(){
     this.user = {
         firstName: "",
         lastName: "",
@@ -57,5 +54,9 @@ async save() {
 save(){
 	this.showLogin = true
 }
-}xw
+
+}
+
+
+
 

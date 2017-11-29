@@ -63,11 +63,16 @@ mongoose.connection.once('open', function callback() {
         });
     
         app.use(function (err, req, res, next) {
-        console.error(err.stack);
-        res.type('text/plan');
-        res.status(500);
-        res.send('500 Sever Error');
+          console.log(err);
+          if (process.env.NODE_ENV !== 'test') logger.log(err.stack,'error');
+          res.type('text/plan');
+          if(err.status){
+            res.status(err.status).send(err.message);
+          } else {
+            res.status(500).send('500 Sever Error');
+          }
         });
+      
     
         console.log("Starting application");
     
