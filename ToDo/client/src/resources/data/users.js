@@ -8,6 +8,7 @@ export class Users {
 
     }
 async save(user){
+    console.log(user)
     if(user){
         try{
             let serverResponse = await this.data.post(user, this.USER_SERVICE);

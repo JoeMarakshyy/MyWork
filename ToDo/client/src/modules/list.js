@@ -33,6 +33,8 @@ createTodo(){
   }
   this.showList = false;
   this.priorities = ['Low', 'Medium', 'High', 'Critical'];
+  this.showCompleted = false;
+  
   
 }
 
@@ -42,12 +44,42 @@ async saveTodo(){
     if(response.error){
       alert("There was an error creating the ToDo");
     } else {
-      //Could provide feeback									
+                      var todoId = response._id;
+                      if(this.filesToUpload && this.filesToUpload.length){
+                          await this.todos.uploadFile(this.filesToUpload, this.user._id, todoId);
+                          this.filesToUpload = [];
+                      }							
     }
     this.showList = true;
   }
 }
 
+   editTodo(todo){
+          this.todoObj = todo;
+          this. showList = false;
+      }
+
+      deleteTodo(todo){
+            this.todos.deleteTodo(todo._id);
+        }
+    
+  completeTodo(todo){
+    todo.completed = !todo.completed;
+    this.todoObj = todo;
+    this.saveTodo();
+}
+toggleShowCompleted(){
+      this.showCompleted = !this.showCompleted;
+  }
+  
+  changeFiles(){
+        this.filesToUpload = new Array(); 
+        this.filesToUpload.push(this.files[0]);
+    }
+    removeFile(index){
+        this.filesToUpload.splice(index,1);
+    }
+    
 
 }
 

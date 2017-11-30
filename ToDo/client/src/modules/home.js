@@ -43,6 +43,7 @@ showRegister(){
 }
 
 async save() {
+    console.log(this.user)
           let serverResponse = await this.users.save(this.user);
           if (!serverResponse.error) {
             this.showLogin = true;
@@ -51,9 +52,7 @@ async save() {
           }
     }
     
-save(){
-	this.showLogin = true
-}
+
 
 }
 

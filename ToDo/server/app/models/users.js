@@ -24,7 +24,7 @@ UserSchema.virtual('fullName')
 
 });
 
-module.exports = Mongoose.model('User', UserSchema);
+
 
 UserSchema.pre('save', function (next) {
     var person = this;
@@ -55,3 +55,4 @@ UserSchema.methods.comparePassword = function (passw, cb) {
     });
 };
 
+module.exports = Mongoose.model('User', UserSchema);
