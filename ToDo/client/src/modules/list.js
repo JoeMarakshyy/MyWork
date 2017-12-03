@@ -1,8 +1,8 @@
 import { inject } from 'aurelia-framework';
-import {ToDos} from '../resources/data/todos';
+import {Todos} from '../resources/data/todos';
 import { AuthService } from 'aurelia-auth';
 
-@inject(ToDos, AuthService )
+@inject(Todos, AuthService )
 export class List {
 
 	constructor(todos, auth){

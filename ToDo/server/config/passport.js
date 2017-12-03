@@ -70,3 +70,22 @@ var jwtOptions = {
   
   passport.use(jwtLogin);
   
+  var jwtOptions = {
+    jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: config.secret
+  };
+  
+  var jwtLogin = new jwtStrategy(jwtOptions, function(payload, next){
+    User.findById(payload._id).exec()
+    .then(function(user){
+      if (user){
+        return next(null, user);
+      } else {
+        return next(null, false);
+      }
+    })
+    .catch(function(err){ return next(err);});
+  });
+  
+  passport.use(jwtLogin);
+  
