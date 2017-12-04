@@ -25,7 +25,7 @@
                         <label for="priorityInput">Priority</label>
                         <select value.bind="todoObj.priority" class="form-control" 
                     id="exampleFormControlSelect2">
-                            <option repeat.for="priority of priorities" value.bind="priority">
+                         <option repeat.for="priority of priorities" value.bind="priority">
                     ${priority}</option>
                         </select>
                         <small id="priorityHelp" class="form-text text-muted">How urgent is this?</small>
@@ -62,9 +62,3 @@
                 </form>
             </template>
             
-            <select value.bind="todoObj.priority" class="form-control" 
-            id="exampleFormControlSelect2">
-                    <option repeat.for="priority of priorities" value.bind="priority">
-            ${priority}</option>
-                </select>
-                
