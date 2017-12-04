@@ -8,7 +8,9 @@ export class List {
 	constructor(todos, auth){
 		this.todos = todos;
 		this.auth = auth;
-
+  this.showList = false;
+  this.showCompleted = false;
+  this.priorities = ['Low','Medium','High','Critical'];
 		this.user = JSON.parse(sessionStorage.getItem('user'));
 		this. showList = true;
 
@@ -16,6 +18,7 @@ export class List {
 
 async activate(){
   await this.todos.getUserTodos(this.user._id);
+  console.log(this.todos.todosArray)
 }
 
   logout(){
@@ -28,12 +31,10 @@ createTodo(){
     todo: "",
     description: "",
     dateDue: new Date(),
-     userId: this.user._id,
+     userID: this.user._id,
     priority: this.priorities[0]
   }
-  this.showList = false;
-  this.priorities = ['Low', 'Medium', 'High', 'Critical'];
-  this.showCompleted = false;
+this.showList = false;
   
   
 }

@@ -12,7 +12,7 @@ module.exports = function (app, config) {
 	router.get('/todos/user/:userId', function(req, res, next){
 		logger.log('Get all todos for ' + req.params.userId, 'verbose');
 
-		Todo.find({user: req.params.userId})
+		Todo.find({userID: req.params.userId})
 			.then(todos => {
 				if(todos){
 					res.status(200).json(todos);
@@ -21,6 +21,17 @@ module.exports = function (app, config) {
 				}
 			});
 	});
+
+	router.get('/todos/', function(req, res, next){
+		Todo.find()
+		.then(todos => {
+			if(todos){
+				res.status(200).json(todos);
+			} else {
+				return next(error);
+			}
+		});
+	})
 
 	router.get('/todos/:todoId', function(req, res, next){
 		logger.log('Get todo ' + req.params.todoId, 'verbose');
@@ -108,7 +119,7 @@ module.exports = function (app, config) {
 				} else {	 
 					if(req.files){
 						todo.file = {
-							filename : req.files[0].filename,
+							fileName : req.files[0].filename,
 							originalName : req.files[0].originalname,
 							dateUploaded : new Date()
 						};

@@ -10,11 +10,13 @@ var  TodoSchema = new Schema({
     dateCreated: {type : Date, default : Date.now},
     dateDue: {type : Date, default : Date.now},
     completed : {type : Boolean, default : false},
+    priority : {type: String, enum: priorities},
     file : { 
         fileName: {type: String},
         originalName: {type : String},
         dateUploaded: {type : Date, default: Date.now}
     }
+
 });
 
 
