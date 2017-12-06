@@ -1,0 +1,23 @@
+{
+    "name": "Gallery",
+    "description": "Gallery",
+    "main": "",
+    "authors": [
+        "Yousef"
+    ],
+    "license": "MIT",
+    "moduleType": [],
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~2.2.4",
+        "raleway": "^1.0.1",
+        "angular-route": "^1.5.7"
+    }
+}

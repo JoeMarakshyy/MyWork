@@ -39,6 +39,11 @@ this.showList = false;
   
 }
 
+back(){
+
+this.showList = true;
+}
+
 async saveTodo(){
   if(this.todoObj){		
     let response = await this.todos.save(this.todoObj);

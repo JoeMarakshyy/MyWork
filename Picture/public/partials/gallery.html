@@ -1,0 +1,50 @@
+<div class="header">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+    <div class="menu">
+        <ul>
+            <li class="menuItem"><a href="/#/">Home</a></li>
+            <li class="menuItem" ng-show="authenticated"><a href="/#newGallery">Create Gallery</a></li>
+            <li class="menuItem" ng-show="authenticated"><a ng-click="signout()" style="cursor:pointer">Signout</a></li>
+            <li class="menuItem" style="color:#1e75ba" ng-show="authenticated"><a>{{ current_user_name }}</a></li>
+            <li ng-hide="authenticated"><a href="/#login"><button id="signin">Login</button></a></li>
+            <li ng-hide="authenticated"><a href="/#signup"><button id="signup">Signup</button></a></li>
+        </ul>
+    </div>
+</div>
+<div class="currentGallery">
+    <h3>{{currentGallery}}</h3>
+    <h5>By {{currentAdmin}}</h5>
+    <br>
+    <h4 ng-show="currentAdmin==current_user_name">Upload new image</h4>
+    <form class="form-inline" ng-submit="uploadImage()" ng-show="currentAdmin==current_user_name">
+        <div class="form-group">
+            <label>File</label>
+            <input type="file" class="form-control" onchange="angular.element(this).scope().uploadFile(this)">
+        </div>
+        <div class="form-group">
+            <label>Caption</label>
+            <input type="text" class="form-control" ng-model="caption">
+        </div>
+        <button type="submit" class="btn btn-default">Upload</button>
+    </form>
+    <div class="images">
+        <div class="row">
+            <div class="loadingText" ng-hide="allImages">
+                Loading...
+            </div>
+            <div class="col-md-3" ng-repeat="item in allImages">
+                <div class="image">
+                    <img src="{{item.imageURL}}" alt="" srcset="">
+                </div>
+                <div class="caption">
+                    {{item.imageName}}
+                </div>
+                <div class="deleteImage" ng-show="authenticated" ng-hide="currentAdmin!=current_user_name" ng-click="deleteImage(item._id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

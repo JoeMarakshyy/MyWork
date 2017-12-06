@@ -1,0 +1,37 @@
+<div class="header">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+    <div class="menu">
+        <ul>
+            <li class="menuItem"><a href="/#/">Home</a></li>
+            <li class="menuItem" ng-show="authenticated"><a href="/#newGallery">Create Gallery</a></li>
+            <li class="menuItem" ng-show="authenticated"><a ng-click="signout()" style="cursor:pointer">Signout</a></li>
+            <li class="menuItem" style="color:#1e75ba" ng-show="authenticated"><a>{{ current_user_name }}</a></li>
+            <li ng-hide="authenticated"><a href="/#login"><button id="signin">Login</button></a></li>
+            <li ng-hide="authenticated"><a href="/#signup"><button id="signup">Signup</button></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="signupMain">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form" align="center">
+                <form ng-submit="register()">
+                    <label>Full Name</label>
+                    <input type="text" ng-model="user.fullName" placeholder="enter your full name" required>
+                    <label>Username</label>
+                    <input type="text" ng-model="user.username" placeholder="select a username" required>
+                    <label>Email Adress</label>
+                    <input type="email" ng-model="user.email" placeholder="email" required>
+                    <label>Mobile Number</label>
+                    <input type="text" ng-model="user.contact" placeholder="mobile number" maxlength="10" minlength="10" required>
+                    <label>Password</label>
+                    <input type="password" ng-model="user.password" placeholder="password" pattern=".{6,}" required>
+                    <button type="submit" value="signup" class="signinButton">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

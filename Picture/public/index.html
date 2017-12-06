@@ -1,0 +1,36 @@
+<!-- 
+Author: Arjun Wadhwa
+Author URL: www.facebook.com/cornifus
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Gallery</title>
+    <meta name="author" content="Arjun Wadhwa" />
+    <meta name="description" content="" />
+    <meta name="viewport" content=" width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/raleway/raleway.css">
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script src="javascripts/default.js"></script>
+    <script src="javascripts/controller.js"></script>
+</head>
+
+<body ng-app="gallery">
+    <div id="preloader">
+        <div id="status">
+            <img src="images/loader.gif">
+        </div>
+    </div>
+    <div ng-view>
+    </div>
+</body>
+
+</html>
